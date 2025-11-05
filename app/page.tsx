@@ -1,65 +1,456 @@
-import Image from "next/image";
+"use client";
+import Button from "./components/Button";
+import ModalVideo from "./components/ModalVideo";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="font-sans overflow-hidden">
+      {/* Hero: Experience Abacus & 5x Faster Math */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900">
+        <div className="absolute inset-0 bg-white/5"></div>
+        <div className="absolute top-10 right-10 w-72 h-72 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse-slow"></div>
+        <div className="absolute bottom-10 left-10 w-72 h-72 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse-slow delay-1000"></div>
+        
+        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-4 py-20 sm:px-6 md:grid-cols-2 lg:py-28 lg:px-8">
+          <div className={`space-y-6 transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className="inline-flex items-center rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 text-sm font-medium text-white mb-4 border border-white/30">
+              🚀 Transform Your Child's Math Journey
+            </div>
+            <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
+              Experience <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Abacus</span> Magic — Unlock <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">5x Faster</span> Math Skills
+            </h1>
+            <p className="text-xl text-blue-100 leading-relaxed">
+              Our live and offline Abacus programs help children think clearly, compute quickly, and build lasting confidence. Learn from expert mentors through structured levels and engaging practice.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-4">
+              <Button href="EXTERNAL_FORM" className="bg-black text-blue-900 hover:bg-blue-50">
+                🎯 Book Free Demo
+              </Button>
+              <Button href="/abacus-online-classes" variant="secondary" className="bg-transparent text-black border-white/50 hover:border-white hover:bg-white/10">
+                Explore Programs
+              </Button>
+            </div>
+            <div className="grid grid-cols-3 gap-8 pt-8">
+              {[
+                { value: "5x", label: "Faster Calculations", emoji: "⚡" },
+                { value: "17+", label: "Countries Impact", emoji: "🌍" },
+                { value: "Levels", label: "Structured Pathway", emoji: "📈" }
+              ].map((stat, index) => (
+                <div key={index} className="text-center p-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-sm">
+                  <div className="text-3xl font-bold text-white">{stat.value}</div>
+                  <div className="text-sm text-blue-200 mt-1">{stat.emoji} {stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={`relative transition-all duration-700 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500 border-4 border-white/20">
+              <ModalVideo 
+                videoId="aqz-KE-bpKQ" 
+                thumbnail="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                title="Abacus Learning Demo"
+              />
+            </div>
+            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-yellow-400 rounded-2xl rotate-12 -z-10 opacity-60"></div>
+            <div className="absolute -top-6 -right-6 w-20 h-20 bg-green-400 rounded-full -z-10 opacity-60"></div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* The Mesmerizing Effect of Abacus Training */}
+      <section className="relative bg-gradient-to-b from-gray-50 to-white py-24">
+        <div className="absolute inset-0 bg-dots-pattern opacity-10"></div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-100 to-blue-100 px-4 py-2 text-sm font-medium text-purple-800 mb-6 border border-purple-200">
+              ✨ Transformative Learning
+            </div>
+            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              The <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">Magic Effect</span> of Abacus Training
+            </h2>
+            <p className="mt-6 text-xl text-gray-600 leading-relaxed">
+              Children develop remarkable speed and accuracy in mental math. With every level, their confidence grows—reducing math anxiety and improving overall academic performance.
+            </p>
+          </div>
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { 
+                t: "Speed & Accuracy", 
+                d: "Weekly milestones and challenges make quick, precise calculation a habit.",
+                emoji: "⚡",
+                color: "from-blue-500 to-cyan-500",
+                bgColor: "bg-blue-50"
+              },
+              { 
+                t: "Focus & Concentration", 
+                d: "Visualizing the abacus strengthens attention and working memory.",
+                emoji: "🎯",
+                color: "from-green-500 to-emerald-500",
+                bgColor: "bg-green-50"
+              },
+              { 
+                t: "Confidence", 
+                d: "Success with numbers builds a positive learning mindset in and beyond math.",
+                emoji: "🌟",
+                color: "from-purple-500 to-pink-500",
+                bgColor: "bg-purple-50"
+              },
+            ].map((c, index) => (
+              <div 
+                key={c.t} 
+                className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-transparent"
+              >
+                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${c.color}`}></div>
+                <div className="relative z-10">
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${c.color} text-white text-2xl mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                    {c.emoji}
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">{c.t}</h3>
+                  <p className="mt-4 text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">{c.d}</p>
+                </div>
+                <div className={`absolute bottom-0 right-0 w-24 h-24 ${c.bgColor} rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Watch Lightning Fast Mental Math (Video) */}
+      <section className="relative bg-gradient-to-br from-gray-900 to-blue-900 py-24 overflow-hidden">
+        <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl opacity-60"></div>
+        <div className="absolute right-0 bottom-1/2 transform translate-y-1/2 w-40 h-40 bg-purple-500/20 rounded-full blur-3xl opacity-60"></div>
+        
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid items-center gap-16 md:grid-cols-2">
+            <div className="space-y-8">
+              <div className="inline-flex items-center rounded-full bg-orange-500/20 backdrop-blur-sm px-4 py-2 text-sm font-medium text-orange-300 mb-4 border border-orange-500/30">
+                🎥 See the Magic
+              </div>
+              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                Watch <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">Lightning-Fast</span> Mental Math
+              </h2>
+              <p className="text-xl text-blue-200 leading-relaxed">
+                See learners solve complex calculations faster than a calculator — a result of consistent practice, guided techniques, and level-based learning.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Button href="EXTERNAL_FORM" className="bg-orange-500 hover:bg-orange-600 text-white">
+                  🎯 Book Free Demo
+                </Button>
+                <Button href="/gallery" variant="secondary" className="bg-transparent text-black border-white/50 hover:border-white hover:bg-white/10">
+                  View Gallery
+                </Button>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500 border-4 border-white/20">
+                <ModalVideo 
+                  videoId="dQw4w9WgXcQ" 
+                  thumbnail="https://images.unsplash.com/photo-1580894894513-541e068a3e2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                  title="Student Math Competition"
+                />
+              </div>
+              <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-yellow-400 rounded-full animate-bounce shadow-lg"></div>
+              <div className="absolute -top-4 -right-4 w-6 h-6 bg-green-400 rounded-full animate-pulse shadow-lg"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Course Structure and Programs */}
+      <section className="relative bg-gradient-to-br from-white to-blue-50 py-24">
+        <div className="absolute inset-0 bg-circuit-pattern opacity-5"></div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800 mb-6 border border-blue-200">
+              📚 Learning Path
+            </div>
+            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              Structured <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Programs</span> for Success
+            </h2>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 mb-12">
+            <div className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-emerald-500"></div>
+              <div className="relative z-10">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xl mb-6 shadow-lg">
+                  📈
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Abacus Course Structure</h3>
+                <p className="mt-4 text-gray-600 leading-relaxed">
+                  A friendly, engaging path with fun math games — identical across online and offline classes. Learners progress through milestones that maintain momentum.
+                </p>
+                <ul className="mt-6 space-y-3 text-gray-700">
+                  <li className="flex items-center">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                    8 levels, approx. 3 months each
+                  </li>
+                  <li className="flex items-center">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                    Two 1-hour sessions per week
+                  </li>
+                  <li className="flex items-center">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                    Practice worksheets and assessments
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+              <div className="relative z-10">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xl mb-6 shadow-lg">
+                  👨‍👩‍👧‍👦
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Programs by Age</h3>
+                <div className="mt-6 space-y-6">
+                  <div className="p-4 rounded-2xl bg-purple-50 border border-purple-100">
+                    <div className="font-bold text-lg text-purple-900">Abacus Program (Age 7–14)</div>
+                    <p className="mt-2 text-purple-700">Designed to spark interest in math and enable exceptional mental calculation speed.</p>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-pink-50 border border-pink-100">
+                    <div className="font-bold text-lg text-pink-900">Lingo Bingo (Age 5–6)</div>
+                    <p className="mt-2 text-pink-700">An offline, game-based starter program that develops early number sense using playful activities.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            <a href="/abacus-online-classes" className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-blue-100 hover:border-blue-300">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">Online Classes</h4>
+                  <p className="mt-3 text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                    Book a free demo and experience our live e-learning platform.
+                  </p>
+                </div>
+                <span className="rounded-full border-2 border-blue-200 p-3 group-hover:bg-blue-500 group-hover:border-blue-500 group-hover:text-white transition-all duration-300 transform group-hover:scale-110 shadow-lg">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+              <div className="absolute bottom-0 right-0 w-16 h-16 bg-blue-50 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </a>
+
+            <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-700 p-8 shadow-2xl">
+              <div className="relative z-10">
+                <h4 className="text-xl font-bold text-white">Offline Classes</h4>
+                <p className="mt-3 text-blue-100">
+                  Over 2000+ centers globally. Raise an enquiry and we'll share the nearest center details.
+                </p>
+                <div className="mt-6">
+                  <Button href="EXTERNAL_FORM" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100 border-white font-semibold">
+                    Raise an Enquiry
+                  </Button>
+                </div>
+              </div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-tr-full"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* Worksheets teaser */}
+      <section className="relative bg-gradient-to-br from-orange-50 to-amber-50 py-24 overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-white to-transparent"></div>
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+        
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid items-center gap-16 md:grid-cols-2">
+            <div className="space-y-8">
+              <div className="inline-flex items-center rounded-full bg-orange-100 px-4 py-2 text-sm font-medium text-orange-800 mb-4 border border-orange-200">
+                📝 Practice Tools
+              </div>
+              <h3 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                Get Unlimited Free <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">Abacus Worksheets</span>
+              </h3>
+              <p className="text-xl text-gray-600 leading-relaxed">
+                Practice makes progress. Generate printable worksheets tailored to operations and levels.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Button href="/abacus-worksheet-generator" className="bg-orange-500 hover:bg-orange-600 text-white">
+                  Visit Worksheet Generator
+                </Button>
+                <Button href="EXTERNAL_FORM" variant="secondary" className="border-2 border-orange-200 hover:border-orange-300 text-orange-700">
+                  Practice to Excel
+                </Button>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500 border-4 border-white/20">
+                <ModalVideo 
+                  videoId="W0LHTWG-UmQ" 
+                  thumbnail="https://images.unsplash.com/photo-1587668178277-295251f900ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                  title="Worksheet Tutorial"
+                />
+              </div>
+              <div className="absolute -top-4 -left-4 w-8 h-8 bg-yellow-400 rounded-full animate-bounce shadow-lg"></div>
+              <div className="absolute -bottom-4 -right-4 w-6 h-6 bg-red-400 rounded-full animate-pulse shadow-lg"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="relative bg-white py-24">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <div className="inline-flex items-center rounded-full bg-purple-100 px-4 py-2 text-sm font-medium text-purple-800 mb-4 border border-purple-200">
+                📸 Gallery
+              </div>
+              <h2 className="text-4xl font-bold tracking-tight text-gray-900">Photo Gallery</h2>
+            </div>
+            <Button href="/gallery" variant="ghost" className="group text-purple-600 hover:text-purple-700 border-purple-200 hover:border-purple-300">
+              View All
+              <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Button>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {[1,2,3,4,5,6].map((i) => (
+              <div 
+                key={i} 
+                className="group relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
+              >
+                <img 
+                  className="h-full w-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
+                  src={`https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=${i}`} 
+                  alt="Gallery" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
+                  <div className="text-white font-medium">Student Achievement #{i}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials & Countries */}
+      <section className="relative bg-gradient-to-br from-gray-50 to-blue-50 py-24 overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-16 md:grid-cols-2">
+            <div className="space-y-8">
+              <div className="inline-flex items-center rounded-full bg-pink-100 px-4 py-2 text-sm font-medium text-pink-800 mb-4 border border-pink-200">
+                ❤️ Parent Love
+              </div>
+              <h2 className="text-4xl font-bold tracking-tight text-gray-900">Parents' Testimonials</h2>
+              <div className="space-y-6">
+                {[
+                  { 
+                    q: "Speed improved dramatically within a few months.", 
+                    a: "— Priya S.",
+                    rating: 5
+                  },
+                  { 
+                    q: "He solves without a calculator and enjoys it now!", 
+                    a: "— Rohit K.",
+                    rating: 5
+                  },
+                  { 
+                    q: "Fun, structured, and motivating classes.", 
+                    a: "— Meera A.",
+                    rating: 5
+                  },
+                ].map((t, i) => (
+                  <div 
+                    key={i} 
+                    className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100"
+                  >
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 to-rose-500"></div>
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-1">
+                        <p className="text-lg text-gray-800 leading-relaxed">"{t.q}"</p>
+                        <div className="flex items-center mt-4 space-x-1">
+                          {[...Array(t.rating)].map((_, star) => (
+                            <span key={star} className="text-yellow-400">⭐</span>
+                          ))}
+                        </div>
+                        <p className="mt-3 font-medium text-gray-600">{t.a}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-700 p-12 shadow-2xl">
+              <div className="relative z-10">
+                <div className="inline-flex items-center rounded-full bg-white/20 px-4 py-2 text-sm font-medium text-white mb-6">
+                  🌍 Global Reach
+                </div>
+                <h3 className="text-3xl font-bold text-white mb-6">
+                  Our training has benefitted students across <span className="text-yellow-300">17+ countries</span>
+                </h3>
+                <p className="text-indigo-100 text-lg leading-relaxed mb-8">
+                  Join a global community of learners building a powerful number sense and confidence with math.
+                </p>
+                <Button 
+                  href="EXTERNAL_FORM" 
+                  className="bg-white text-black hover:bg-gray-100"
+                >
+                  Make Your Child a Math Genius
+                </Button>
+              </div>
+              <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-bl-full"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-tr-full"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-gradient-to-br from-blue-50/80 to-indigo-50/80 backdrop-blur-sm py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-gray-900">Frequently Asked Questions</h2>
+            <div className="mt-6 divide-y divide-gray-200/60 rounded-xl border border-gray-200/60 bg-white/40 backdrop-blur-sm">
+              {[
+                { q: "What are the main benefits of enrolling?", a: "Enhanced mental math, faster calculations (often 5x), improved concentration and memory, and a positive impact on academics." },
+                { q: "How is the program structured?", a: "Level-based with live classes, practice worksheets, and periodic assessments to track progress." },
+                { q: "How often are classes?", a: "Typically twice a week, one hour each session; about three months per level." },
+                { q: "Online vs. offline?", a: "Choose live online classes or join a nearby center. Both follow the same structured curriculum." },
+                { q: "How can parents support?", a: "Encourage regular practice and celebrate milestones. Use worksheets to reinforce skills." },
+                { q: "How long to complete the program?", a: "Varies by learner; most complete levels progressively over months, building mastery at each step." },
+                { q: "What is the cost?", a: "Fees depend on location and mode. Raise an enquiry for details." },
+              ].map((f, i) => (
+                <details key={i} className="group p-4">
+                  <summary className="cursor-pointer list-none font-medium text-gray-800">
+                    <span className="mr-2 inline-block rounded-full border border-gray-400 p-1 text-gray-600 group-open:rotate-45 transition-transform">+</span>
+                    {f.q}
+                  </summary>
+                  <p className="mt-2 text-sm text-gray-700">{f.a}</p>
+                </details>
+              ))}
+            </div>
+            {/* <div className="mt-6 flex gap-3">
+              <Button href="EXTERNAL_FORM">Enquiry</Button>
+              <Button href="/blog" variant="secondary">Blogs</Button>
+            </div> */}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
