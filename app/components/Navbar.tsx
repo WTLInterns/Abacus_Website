@@ -33,16 +33,9 @@ const nav: NavItem[] = [
     ],
   },
   { label: "GET OUR FRANCHISE", href: "/abacus-franchise" },
-  { label: "BECOME A TEACHER", href: "/become-a-teacher" },
-  { label: "Blog", href: "/blog" },
-  {
-    label: "ABOUT US",
-    children: [
-      { label: "About Company", href: "/about-us" },
-      { label: "Gallery", href: "/gallery" },
-    ],
-  },
-  { label: "Contact", href: "/contact" },
+  { label: "ABOUT US", href: "/about-us" },
+  { label: "GALLERY", href: "/gallery" },
+  { label: "CONTACT", href: "/contact" },
 ];
 
 export default function Navbar() {
