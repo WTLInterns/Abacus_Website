@@ -1,7 +1,45 @@
 "use client";
+import { useState } from "react";
 import Button from "../components/Button";
 
+interface FormData {
+  studentName: string;
+  guardianName: string;
+  email: string;
+  phone: string;
+  city: string;
+  ageGroup: string;
+  preferredDate: string;
+}
+
 export default function AbacusOnlineClasses() {
+  const [formData, setFormData] = useState<FormData>({
+    studentName: '',
+    guardianName: '',
+    email: '',
+    phone: '',
+    city: '',
+    ageGroup: '6 to 8 Years old',
+    preferredDate: new Date().toISOString().split('T')[0]
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Here you would typically send the form data to your backend
+    console.log('Form submitted:', formData);
+    
+    // For now, we'll just open the external form in a new tab
+    window.open('https://admin.vertexabacus.com/auth/sign-in', '_blank');
+  };
+
   return (
     <div className="font-sans bg-gradient-to-b from-blue-50 to-white">
       {/* Hero: two-column with inline form */}
@@ -51,44 +89,79 @@ export default function AbacusOnlineClasses() {
               <div className="text-sm text-gray-500 mt-1">Age Group 6–12 years only</div>
             </div>
             <div className="px-6 pb-6">
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <input 
                   type="text" 
+                  name="studentName"
+                  value={formData.studentName}
+                  onChange={handleChange}
                   placeholder="Enter Student Name" 
                   className="w-full border-2 border-gray-200 bg-white rounded-xl px-4 py-3 outline-none placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300" 
+                  required
                 />
                 <input 
                   type="text" 
+                  name="guardianName"
+                  value={formData.guardianName}
+                  onChange={handleChange}
                   placeholder="Enter Guardian's Name" 
                   className="w-full border-2 border-gray-200 bg-white rounded-xl px-4 py-3 outline-none placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300" 
+                  required
                 />
                 <div className="grid grid-cols-3 gap-3">
                   <input 
                     type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="Email Id" 
-                    className="col-span-1 w-full border-2 border-gray-200 bg-white rounded-xl px-3 py-3 outline-none placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 text-sm" 
+                    className="col-span-3 md:col-span-1 w-full border-2 border-gray-200 bg-white rounded-xl px-3 py-3 outline-none placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 text-sm" 
+                    required
                   />
-                  <select className="col-span-1 w-full border-2 border-gray-200 bg-white rounded-xl px-3 py-3 text-sm text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300">
-                    <option>🇮🇳 +91</option>
-                  </select>
-                  <input 
-                    type="tel" 
-                    placeholder="WhatsApp" 
-                    className="col-span-1 w-full border-2 border-gray-200 bg-white rounded-xl px-3 py-3 outline-none placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 text-sm" 
-                  />
+                  <div className="col-span-3 md:col-span-2 flex gap-3">
+                    <div className="w-24 flex-shrink-0">
+                      <select className="w-full border-2 border-gray-200 bg-white rounded-xl px-3 py-3 text-sm text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300">
+                        <option>🇮🇳 +91</option>
+                      </select>
+                    </div>
+                    <input 
+                      type="tel" 
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="WhatsApp Number" 
+                      className="flex-1 w-full border-2 border-gray-200 bg-white rounded-xl px-3 py-3 outline-none placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 text-sm" 
+                      required
+                    />
+                  </div>
                 </div>
                 <input 
                   type="text" 
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
                   placeholder="Enter Your City" 
                   className="w-full border-2 border-gray-200 bg-white rounded-xl px-4 py-3 outline-none placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300" 
+                  required
                 />
-                <select className="w-full border-2 border-gray-200 bg-white rounded-xl px-4 py-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300">
-                  <option>6 to 8 Years old</option>
-                  <option>9 to 12 Years old</option>
+                <select 
+                  name="ageGroup"
+                  value={formData.ageGroup}
+                  onChange={handleChange}
+                  className="w-full border-2 border-gray-200 bg-white rounded-xl px-4 py-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                  required
+                >
+                  <option value="6 to 8 Years old">6 to 8 Years old</option>
+                  <option value="9 to 12 Years old">9 to 12 Years old</option>
                 </select>
                 <input 
                   type="date" 
+                  name="preferredDate"
+                  value={formData.preferredDate}
+                  onChange={handleChange}
+                  min={new Date().toISOString().split('T')[0]}
                   className="w-full border-2 border-gray-200 bg-white rounded-xl px-4 py-3 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300" 
+                  required
                 />
                 <div className="rounded-xl border-2 border-gray-200 p-4 text-gray-500 text-sm bg-white flex items-center justify-center">
                   🔒 reCAPTCHA placeholder
@@ -96,9 +169,12 @@ export default function AbacusOnlineClasses() {
                 <div className="text-xs text-gray-500 text-center">
                   By registering here, I agree to Vertex Abacus Terms & Conditions and Privacy Policy
                 </div>
-                <Button href="EXTERNAL_FORM" className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-semibold py-4">
+                <button 
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2"
+                >
                   🚀 Book Free Demo Now
-                </Button>
+                </button>
               </form>
             </div>
           </div>
@@ -259,53 +335,6 @@ export default function AbacusOnlineClasses() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* What's Included */}
-      <section className="py-20 bg-gradient-to-br from-cyan-50 to-blue-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-12 md:grid-cols-2 items-center">
-          <div className="space-y-6">
-            <div className="inline-flex items-center rounded-full bg-cyan-100 px-4 py-2 text-sm font-medium text-cyan-800 border border-cyan-200">
-              📦 Everything Included
-            </div>
-            <h3 className="text-4xl font-bold tracking-tight text-gray-900">What's <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600">Included</span> in Your Journey</h3>
-            <ul className="space-y-4 text-gray-700 text-lg">
-              <li className="flex items-center gap-4 p-3 rounded-xl bg-white/50 backdrop-blur-sm border border-white/70">
-                <span className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white">📅</span>
-                <span>2 Live sessions / week (1 hour each)</span>
-              </li>
-              <li className="flex items-center gap-4 p-3 rounded-xl bg-white/50 backdrop-blur-sm border border-white/70">
-                <span className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white">📝</span>
-                <span>Practice worksheets and progress dashboard</span>
-              </li>
-              <li className="flex items-center gap-4 p-3 rounded-xl bg-white/50 backdrop-blur-sm border border-white/70">
-                <span className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white">👨‍🏫</span>
-                <span>Mentor feedback and assessments</span>
-              </li>
-              <li className="flex items-center gap-4 p-3 rounded-xl bg-white/50 backdrop-blur-sm border border-white/70">
-                <span className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white">🏅</span>
-                <span>Certificates on level completion</span>
-              </li>
-            </ul>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button href="EXTERNAL_FORM" className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-semibold">
-                🎯 Book Free Demo
-              </Button>
-              <Button href="/contact" variant="secondary" className="border-2 border-cyan-300 text-cyan-700 hover:bg-cyan-50 hover:border-cyan-400 transition-all duration-300">
-                💬 Talk to Us
-              </Button>
-            </div>
-          </div>
-          <div className="relative rounded-3xl bg-white shadow-2xl border border-cyan-200 p-6 transform hover:scale-105 transition-transform duration-500">
-            <div className="aspect-video w-full rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-white text-xl font-bold shadow-lg">
-              <div className="text-center">
-                <div className="text-4xl mb-2">🎥</div>
-                <div>Live Class Experience</div>
-                <div className="text-sm opacity-90 mt-2">See how our classes work</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Button from "./Button";
 
-const EXTERNAL_FORM = "https://vertexabacus.com/auth/sign-in";
+const EXTERNAL_FORM = "https://admin.vertexabacus.com/auth/sign-in";
 
 type NavItem = {
   label: string;
@@ -41,6 +41,12 @@ const nav: NavItem[] = [
 export default function Navbar() {
   const [open, setOpen] = useState<number | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleEnquiryClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.open('https://admin.vertexabacus.com/auth/sign-in', '_blank');
+    if (mobileOpen) setMobileOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-neutral-200 bg-gradient-to-r from-violet-600/10 via-white to-violet-600/10 backdrop-blur-md supports-[backdrop-filter]:bg-white/60">
@@ -89,13 +95,40 @@ export default function Navbar() {
               )}
             </div>
           ))}
-          <Button href="https://vertexabacus.com/auth/sign-in" className="ml-2 whitespace-nowrap">Login</Button>
+          <Button href="https://admin.vertexabacus.com/auth/sign-in" className="ml-2 whitespace-nowrap">Login</Button>
         </nav>
 
         <div className="lg:hidden flex items-center gap-2">
-          <Button href="EXTERNAL_FORM" variant="secondary" className="hidden sm:inline-flex">Enquiry</Button>
-          <button onClick={() => setMobileOpen((s) => !s)} aria-label="Toggle Menu" className="rounded-md p-2 text-black hover:bg-neutral-100">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+          <Button 
+            href="https://admin.vertexabacus.com/auth/sign-in"
+            className="whitespace-nowrap"
+            onClick={handleEnquiryClick}
+          >
+            Login
+          </Button>
+          <Button 
+            href="EXTERNAL_FORM" 
+            variant="secondary" 
+            className="hidden sm:inline-flex whitespace-nowrap"
+            onClick={handleEnquiryClick}
+          >
+            Enquiry
+          </Button>
+          <button 
+            onClick={() => setMobileOpen((s) => !s)} 
+            aria-label="Toggle Menu" 
+            className="rounded-md p-2 text-black hover:bg-neutral-100"
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round"/>
+              </svg>
+            )}
           </button>
         </div>
       </div>
@@ -122,10 +155,28 @@ export default function Navbar() {
                   ) : (
                     <Link href={item.href!} className="block rounded-md px-3 py-2 text-sm text-black hover:bg-white/70 whitespace-nowrap">{item.label}</Link>
                   )}
+                  {item.label === 'CONTACT' && (
+                    <Link 
+                      href="https://admin.vertexabacus.com/auth/sign-in" 
+                      className="block rounded-md px-3 py-2 text-sm text-black hover:bg-white/70 whitespace-nowrap font-medium"
+                      onClick={handleEnquiryClick}
+                    >
+                      LOGIN
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
-            <Button href="EXTERNAL_FORM" className="mt-3 w-full">RAISE AN INQUIRY</Button>
+            <div className="mt-3 space-y-2">
+              <Button 
+                href="EXTERNAL_FORM" 
+                className="w-full justify-center"
+                onClick={handleEnquiryClick}
+                variant="secondary"
+              >
+                RAISE AN INQUIRY
+              </Button>
+            </div>
           </div>
         </div>
       )}
