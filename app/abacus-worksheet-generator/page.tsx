@@ -1,9 +1,18 @@
 "use client";
-import Button from "../components/Button";
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
+
+type FormData = {
+  operator: string;
+  questions: number;
+  rows: number;
+  digits: number;
+  name: string;
+  email: string;
+  userType: string;
+};
 
 export default function WorksheetGenerator() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     operator: 'addition',
     questions: 25,
     rows: 2,
@@ -13,14 +22,15 @@ export default function WorksheetGenerator() {
     userType: 'parent'
   });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'number' ? parseInt(value, 10) : value
+    }));
   };
 
-  const handleGenerate = (e) => {
+  const handleGenerate = (e: FormEvent) => {
     e.preventDefault();
     alert('🎉 Your customized worksheet is being generated! Check your email shortly.');
   };
@@ -53,9 +63,12 @@ export default function WorksheetGenerator() {
               </p>
               
               <div className="flex flex-wrap gap-4">
-                <Button href="EXTERNAL_FORM" className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold px-8 py-4 text-lg">
+                <a 
+                  href="EXTERNAL_FORM" 
+                  className="inline-flex items-center justify-center bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold px-8 py-4 text-lg rounded-lg"
+                >
                   ✨ Generate Free Worksheet
-                </Button>
+                </a>
               </div>
 
               {/* Stats */}
@@ -333,19 +346,18 @@ export default function WorksheetGenerator() {
             Join thousands of educators and parents who are creating amazing learning experiences with our worksheet generator.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <Button 
+            <a 
               href="EXTERNAL_FORM" 
-              variant="secondary" 
-              className="bg-white text-indigo-600 hover:bg-gray-100 font-bold px-8 py-4 text-lg"
+              className="inline-flex items-center justify-center bg-white text-indigo-600 hover:bg-gray-100 font-bold px-8 py-4 text-lg rounded-lg transition-all duration-300"
             >
               🎯 Start Generating Free Worksheets
-            </Button>
-            <Button 
+            </a>
+            <a 
               href="/abacus-online-classes" 
-              className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold px-8 py-4 text-lg"
+              className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold px-8 py-4 text-lg rounded-lg transition-all duration-300"
             >
               🧮 Explore Online Classes
-            </Button>
+            </a>
           </div>
         </div>
       </section>

@@ -2,10 +2,22 @@
 import Button from "../components/Button";
 import { useState, useEffect } from 'react';
 
+type NumberType = {
+  num: number;
+  text: string;
+};
+
+type ButtonProps = {
+  href: string;
+  className: string;
+  variant?: string;
+  children: React.ReactNode;
+};
+
 export default function LingoBingo() {
-  const [activeFeature, setActiveFeature] = useState(0);
-  const [clickedNumbers, setClickedNumbers] = useState([]);
-  const [showMagic, setShowMagic] = useState(false);
+  const [activeFeature, setActiveFeature] = useState<number>(0);
+  const [clickedNumbers, setClickedNumbers] = useState<number[]>([]);
+  const [showMagic, setShowMagic] = useState<boolean>(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -14,7 +26,7 @@ export default function LingoBingo() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleNumberClick = (number) => {
+  const handleNumberClick = (number: number) => {
     // Add number to clicked numbers
     setClickedNumbers(prev => [...prev, number]);
     
@@ -39,7 +51,7 @@ export default function LingoBingo() {
     console.log(`Magic number ${number} clicked!`);
   };
 
-  const getNumberColor = (number) => {
+  const getNumberColor = (number: number): string => {
     const colors = [
       'from-red-100 to-pink-100',
       'from-blue-100 to-cyan-100',

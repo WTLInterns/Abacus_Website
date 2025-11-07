@@ -349,9 +349,12 @@ export default function AbacusFranchise() {
                       placeholder="Your message..."
                     ></textarea>
                   </div>
-                  <Button type="submit" className="w-full py-4">
+                  <button 
+                    type="submit" 
+                    className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
+                  >
                     Submit Application
-                  </Button>
+                  </button>
                 </form>
               </div>
             </div>
