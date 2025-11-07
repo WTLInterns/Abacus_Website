@@ -46,8 +46,14 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 w-full border-b border-neutral-200 bg-gradient-to-r from-violet-600/10 via-white to-violet-600/10 backdrop-blur-md supports-[backdrop-filter]:bg-white/60">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 font-bold">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5v4h4v2h-4v4h-2v-4H7V11h4V7h2z"/></svg>
-          <span>Vertex Abacus</span>
+          <img 
+            src="/images/abacus_logo.jpg" 
+            alt="Vertex Abacus Logo" 
+            className="h-14 w-auto" 
+            width={72} 
+            height={72}
+          />
+          <span className="text-xl font-bold text-gray-900">Vertex Abacus</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-3">
