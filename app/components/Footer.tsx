@@ -1,11 +1,8 @@
 import Link from "next/link";
 
 const socials = [
-  { name: "Facebook", href: "https://facebook.com", svg: '<path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.2l-.4 3h-1.8v7A10 10 0 0 0 22 12z"/>' },
-  { name: "Instagram", href: "https://instagram.com", svg: '<path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>' },
-  { name: "YouTube", href: "https://youtube.com", svg: '<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 47 47 0 0 0 0 12a47 47 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1C4.5 20.5 12 20.5 12 20.5s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A47 47 0 0 0 24 12a47 47 0 0 0-.5-5.8zM9.8 15.5v-7l6.4 3.5-6.4 3.5z"/>' },
-  { name: "LinkedIn", href: "https://linkedin.com", svg: '<path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5.002zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.6-2 3.8 0 4.5 2.5 4.5 5.8V21h-4v-5.4c0-1.3 0-3-1.8-3-1.9 0-2.2 1.4-2.2 2.9V21H9z"/>' },
-  { name: "X", href: "https://x.com", svg: '<path d="M18 2h3l-7 8 8 10h-6l-5-6-6 6H2l8-9-7-9h6l4 5 5-5z"/>' },
+  { name: "Facebook", href: "https://www.facebook.com/share/1EmQ1ju6qa/", svg: '<path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.2l-.4 3h-1.8v7A10 10 0 0 0 22 12z"/>' },
+  { name: "Instagram", href: "https://www.instagram.com/vertex_abacus_academy?utm_source=qr&igsh=MWN1YjZqeG9vNnJlcg==", svg: '<path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>' },
 ];
 
 export default function Footer() {
@@ -55,9 +52,8 @@ export default function Footer() {
             <h4 className="font-semibold">Contact</h4>
             <ul className="mt-3 space-y-2 text-sm text-neutral-700">
               <li>Address: 51, Sampat Hills, Bicholi Mardana Bypass, Indore-452016, Madhya Pradesh, India</li>
-              <li>Email: info@mmtpl.com</li>
-              <li>Franchise inquiry: 9826251893</li>
-              <li>Online classes: 9826074328</li>
+              <li>Email: <a href="mailto:vertex.priyanka1@gmail.com" className="hover:underline text-blue-600">vertex.priyanka1@gmail.com</a></li>
+              <li>Phone: <a href="tel:7821067359" className="hover:underline text-blue-600">7821067359</a></li>
               <li><Link href="/contact" className="hover:underline">Contact Us</Link></li>
             </ul>
           </div>

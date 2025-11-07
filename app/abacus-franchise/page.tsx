@@ -326,7 +326,7 @@ export default function AbacusFranchise() {
                         type="tel"
                         required
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                        placeholder="+1 (___) ___-____"
+                        placeholder="+91 78210 67359"
                       />
                     </div>
                   </div>
