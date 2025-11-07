@@ -12,8 +12,14 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-2 font-bold">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5v4h4v2h-4v4h-2v-4H7V11h4V7h2z"/></svg>
-              <span>Vertex Abacus</span>
+              <img 
+                src="/images/abacus_logo.jpg" 
+                alt="Vertex Abacus Logo" 
+                className="h-14 w-auto" 
+                width={56} 
+                height={56}
+              />
+              <span className="text-xl font-bold text-gray-900">Vertex Abacus</span>
             </div>
             <p className="mt-3 text-sm text-neutral-600">Premium Abacus training for young minds. Build confidence, accuracy, and a lifelong love for numbers.</p>
             <div className="mt-4 flex gap-3">
