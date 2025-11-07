@@ -3,14 +3,16 @@ import React from "react";
 import Link from "next/link";
 import { openEnquiryModal } from "./EnquiryModal";
 
-const EXTERNAL_FORM = "https://vertexabacus.com/auth/sign-in";
+const EXTERNAL_FORM = "https://admin.vertexabacus.com/auth/sign-in";
 
 type ButtonProps = {
   children: React.ReactNode;
   href?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
   variant?: "primary" | "secondary" | "ghost";
   className?: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 };
 
 export default function Button({ children, href, onClick, variant = "primary", className = "" }: ButtonProps) {
@@ -23,7 +25,14 @@ export default function Button({ children, href, onClick, variant = "primary", c
 
   if (href === "EXTERNAL_FORM") {
     return (
-      <button className={`${base} ${styles} ${className}`} onClick={() => openEnquiryModal()}>
+      <button 
+        className={`${base} ${styles} ${className}`} 
+        onClick={(e) => {
+          e.preventDefault();
+          openEnquiryModal();
+          if (onClick) onClick(e);
+        }}
+      >
         {children}
       </button>
     );
