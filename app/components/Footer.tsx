@@ -13,7 +13,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 font-bold">
               <img 
-                src="/images/abacus_logo.jpg" 
+                src="/images/abacus_logo.png" 
                 alt="Vertex Abacus Logo" 
                 className="h-14 w-auto" 
                 width={56} 
