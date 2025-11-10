@@ -348,7 +348,59 @@ export default function Home() {
         </div>
       </section>
 
-      
+      <section className="relative bg-gradient-to-br from-white to-gray-50 py-24">
+        <div className="absolute inset-0 bg-dots-pattern opacity-10"></div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold tracking-tight text-gray-900">Program Highlights</h2>
+            <p className="mt-3 text-lg text-gray-600">A comprehensive program designed for whole-brain development and math excellence</p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Highlights</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3"><span>📚</span><span><span className="font-semibold">Level-Based Curriculum:</span> progressive levels – from beginner to advanced.</span></li>
+                <li className="flex items-start gap-3"><span>🧠</span><span><span className="font-semibold">Whole Brain Development:</span> Enhances concentration, memory, and creativity.</span></li>
+                <li className="flex items-start gap-3"><span>⏱</span><span><span className="font-semibold">Speed & Accuracy Training:</span> Solve complex calculations mentally within seconds.</span></li>
+                <li className="flex items-start gap-3"><span>👨‍🏫</span><span><span className="font-semibold">Expert Trainers:</span> Certified, child-friendly, and experienced faculty.</span></li>
+                <li className="flex items-start gap-3"><span>🏆</span><span><span className="font-semibold">Competitions & Certifications:</span> Participation in state/national-level exams and contests.</span></li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Who Can Join?</h3>
+              <p className="text-gray-700 mb-6">Children aged 6 to 15 years from any school or board.</p>
+
+              <h4 className="text-lg font-semibold text-gray-900 mb-3">Key Benefits</h4>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3"><span>📈</span><span>Improved academic performance</span></li>
+                <li className="flex items-start gap-3"><span>💪</span><span>Boost in confidence and logical thinking</span></li>
+                <li className="flex items-start gap-3"><span>🎧</span><span>Stronger focus and listening skills</span></li>
+                <li className="flex items-start gap-3"><span>🧩</span><span>Enhanced visualization and memory power</span></li>
+              </ul>
+
+              <div className="mt-8">
+                <h4 className="text-lg font-semibold text-gray-900 mb-3">Program Modes</h4>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start gap-3"><span>✅</span><span>Offline (At Vertex Centers)</span></li>
+                  <li className="flex items-start gap-3"><span>✅</span><span>Online (Live Zoom/Google Meet Classes)</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <Button 
+              onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+              className="bg-black text-white hover:bg-gray-800"
+            >
+              Enquire Now
+            </Button>
+          </div>
+        </div>
+      </section>
+
 
       {/* Gallery */}
       <section className="relative bg-white py-24">
