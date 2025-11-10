@@ -111,7 +111,11 @@ export default function LingoBingo() {
               </p>
               
               <div className="flex flex-wrap gap-3">
-                <Button href="EXTERNAL_FORM" className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-semibold text-sm px-6 py-3">
+                <Button 
+                  href="#"
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                  className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-semibold text-sm px-6 py-3"
+                >
                   🎯 Book A Free Demo
                 </Button>
                 <Button href="/contact" variant="secondary" className="border-2 border-purple-300 text-purple-700 hover:bg-purple-50 hover:border-purple-400 transition-all duration-300 font-semibold text-sm px-6 py-3">
@@ -363,7 +367,11 @@ export default function LingoBingo() {
           </div>
           
           <div className="text-center mt-8">
-            <Button href="EXTERNAL_FORM" className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-semibold text-sm px-8 py-3">
+            <Button 
+              href="#"
+              onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+              className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-semibold text-sm px-8 py-3"
+            >
               🎮 Start Learning Journey
             </Button>
           </div>
@@ -381,7 +389,8 @@ export default function LingoBingo() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button 
-              href="EXTERNAL_FORM" 
+              href="#"
+              onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
               variant="secondary" 
               className="bg-white text-purple-600 hover:bg-gray-100 font-semibold text-sm px-6 py-3"
             >

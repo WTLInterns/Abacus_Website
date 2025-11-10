@@ -110,7 +110,8 @@ export default function AbacusClassesNearMe() {
                       📞 Call Center
                     </a>
                     <Button 
-                      href="EXTERNAL_FORM" 
+                      href="#" 
+                      onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
                       variant="secondary" 
                       className="w-full border-2 border-gray-300 text-gray-700 hover:border-blue-300 hover:bg-blue-50"
                     >
@@ -152,7 +153,8 @@ export default function AbacusClassesNearMe() {
               🌐 Explore Online Classes
             </Button>
             <Button 
-              href="EXTERNAL_FORM" 
+              href="#" 
+              onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
               className="bg-black text-white hover:bg-gray-800 font-semibold border-0"
             >
               💬 Contact for New Center

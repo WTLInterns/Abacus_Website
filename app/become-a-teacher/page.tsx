@@ -8,7 +8,12 @@ export default function BecomeATeacher() {
         <h1 className="text-3xl font-semibold tracking-tight text-neutral-900">Become a Teacher</h1>
         <p className="mt-4 text-neutral-600">Get certified to teach Abacus. We provide training, resources, and ongoing support to help you succeed.</p>
         <div className="mt-8 flex gap-3">
-          <Button href="EXTERNAL_FORM">Apply Now</Button>
+          <Button 
+            href="#"
+            onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+          >
+            Apply Now
+          </Button>
           <Button href="/contact" variant="secondary">Contact</Button>
         </div>
       </div>

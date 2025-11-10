@@ -33,19 +33,16 @@ export default function AbacusOnlineClasses() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
     console.log('Form submitted:', formData);
-    
-    // For now, we'll just open the external form in a new tab
-    window.open('https://admin.vertexabacus.com/auth/sign-in', '_blank');
+    // Open enquiry modal instead of navigating
+    window.dispatchEvent(new CustomEvent('open-enquiry-modal'));
   };
 
   return (
     <div className="font-sans bg-gradient-to-b from-blue-50 to-white">
-      {/* Hero: two-column with inline form */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      {/* Hero: two-column with inline form (removed as requested) */}
+      {/* <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid items-start gap-12 lg:grid-cols-2">
-          {/* Left content */}
           <div className="space-y-6">
             <div className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 px-4 py-2 text-sm font-medium text-white mb-4 shadow-lg">
               🎯 Live & Guided Abacus Training
@@ -71,7 +68,11 @@ export default function AbacusOnlineClasses() {
               </li>
             </ul>
             <div className="flex flex-wrap gap-4 pt-4">
-              <Button href="EXTERNAL_FORM" className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-semibold">
+              <Button 
+                href="#"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-semibold"
+              >
                 🎯 Book Free Demo Class
               </Button>
               <Button href="/contact" variant="secondary" className="border-2 border-blue-300 text-blue-700 hover:bg-blue-50 hover:border-blue-400 transition-all duration-300">
@@ -80,13 +81,13 @@ export default function AbacusOnlineClasses() {
             </div>
           </div>
 
-          {/* Right: Inline enquiry form card */}
+          
           <div className="relative rounded-3xl bg-gradient-to-br from-white to-blue-50 shadow-2xl border border-blue-200/50 overflow-hidden backdrop-blur-sm">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-purple-500"></div>
             <div className="px-6 pt-6 pb-4 text-center">
               <div className="text-sm text-blue-600 font-semibold">🎓 Abacus Live Classes</div>
               <h3 className="mt-2 text-2xl font-bold text-gray-900">Book A Free Demo Class</h3>
-              <div className="text-sm text-gray-500 mt-1">Age Group 6–12 years only</div>
+              <div className="text-sm text-gray-500 mt-1">Age Group 6–15 years only</div>
             </div>
             <div className="px-6 pb-6">
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -179,7 +180,7 @@ export default function AbacusOnlineClasses() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Highlights: Zigzag layout */}
       <section className="relative py-20 bg-gradient-to-b from-orange-50 to-amber-50 overflow-hidden">
@@ -195,7 +196,11 @@ export default function AbacusOnlineClasses() {
               <h2 className="text-4xl font-bold tracking-tight text-gray-900">Live, Interactive & <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">Super Fun</span></h2>
               <p className="text-lg text-gray-700 leading-relaxed">Small batches, real-time feedback, and playful drills keep learners engaged while mastering core techniques.</p>
               <div className="flex flex-wrap gap-4">
-                <Button href="EXTERNAL_FORM" className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-semibold">
+                <Button 
+                  href="#"
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                  className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-semibold"
+                >
                   🎯 Book Free Demo
                 </Button>
                 <Button href="/abacus-worksheet-generator" variant="secondary" className="border-2 border-orange-300 text-orange-700 hover:bg-orange-50 hover:border-orange-400 transition-all duration-300">
@@ -282,7 +287,11 @@ export default function AbacusOnlineClasses() {
             ))}
           </div>
           <div className="mt-10 flex justify-center">
-            <Button href="EXTERNAL_FORM" className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-semibold">
+            <Button 
+              href="#"
+              onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+              className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-semibold"
+            >
               🎯 Get Level Recommendation
             </Button>
           </div>
@@ -353,7 +362,12 @@ export default function AbacusOnlineClasses() {
           </h2>
           <p className="text-xl text-indigo-100 mb-8">Book a free demo class and see the magic happen in real-time!</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button href="EXTERNAL_FORM" variant="secondary" className="bg-white text-indigo-600 hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold px-8 py-4">
+            <Button 
+              href="#" 
+              onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+              variant="secondary" 
+              className="bg-white text-indigo-600 hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold px-8 py-4"
+            >
               🎯 Book Free Demo Class
             </Button>
             <Button href="/contact" className="bg-black text-white hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 font-semibold px-8 py-4">

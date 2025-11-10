@@ -64,7 +64,8 @@ export default function WorksheetGenerator() {
               
               <div className="flex flex-wrap gap-4">
                 <a 
-                  href="EXTERNAL_FORM" 
+                  href="#" 
+                  onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-enquiry-modal')); }}
                   className="inline-flex items-center justify-center bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold px-8 py-4 text-lg rounded-lg"
                 >
                   ✨ Generate Free Worksheet
@@ -347,7 +348,8 @@ export default function WorksheetGenerator() {
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             <a 
-              href="EXTERNAL_FORM" 
+              href="#" 
+              onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('open-enquiry-modal')); }}
               className="inline-flex items-center justify-center bg-white text-indigo-600 hover:bg-gray-100 font-bold px-8 py-4 text-lg rounded-lg transition-all duration-300"
             >
               🎯 Start Generating Free Worksheets

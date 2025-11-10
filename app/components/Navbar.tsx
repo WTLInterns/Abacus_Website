@@ -18,7 +18,6 @@ const nav: NavItem[] = [
     children: [
       { label: "Abacus Online Classes", href: "/abacus-online-classes" },
       { label: "Abacus Classes Near Me", href: "/abacus-classes-near-me" },
-      { label: "Lingo Bingo", href: "/lingo-bingo" },
       { label: "Abacus Classes In School", href: "/abacus-for-schools" },
     ],
   },
@@ -34,7 +33,6 @@ const nav: NavItem[] = [
   },
   { label: "GET OUR FRANCHISE", href: "/abacus-franchise" },
   { label: "ABOUT US", href: "/about-us" },
-  { label: "GALLERY", href: "/gallery" },
   { label: "CONTACT", href: "/contact" },
 ];
 
@@ -44,7 +42,7 @@ export default function Navbar() {
 
   const handleEnquiryClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
     e.preventDefault();
-    window.open('https://admin.vertexabacus.com/auth/sign-in', '_blank');
+    window.dispatchEvent(new CustomEvent('open-enquiry-modal'));
     if (mobileOpen) setMobileOpen(false);
   };
 
@@ -102,12 +100,11 @@ export default function Navbar() {
           <Button 
             href="https://admin.vertexabacus.com/auth/sign-in"
             className="whitespace-nowrap"
-            onClick={handleEnquiryClick}
           >
             Login
           </Button>
           <Button 
-            href="EXTERNAL_FORM" 
+            href="#" 
             variant="secondary" 
             className="hidden sm:inline-flex whitespace-nowrap"
             onClick={handleEnquiryClick}
@@ -159,7 +156,6 @@ export default function Navbar() {
                     <Link 
                       href="https://admin.vertexabacus.com/auth/sign-in" 
                       className="block rounded-md px-3 py-2 text-sm text-black hover:bg-white/70 whitespace-nowrap font-medium"
-                      onClick={handleEnquiryClick}
                     >
                       LOGIN
                     </Link>
@@ -169,7 +165,7 @@ export default function Navbar() {
             </ul>
             <div className="mt-3 space-y-2">
               <Button 
-                href="EXTERNAL_FORM" 
+                href="#" 
                 className="w-full justify-center"
                 onClick={handleEnquiryClick}
                 variant="secondary"

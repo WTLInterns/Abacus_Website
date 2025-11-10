@@ -34,7 +34,11 @@ export default function AbacusForSchools() {
               </div>
               
               <div className="flex flex-wrap gap-4 pt-4">
-                <Button href="EXTERNAL_FORM" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold px-8 py-4 text-lg">
+                <Button 
+                  href="#"
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                  className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold px-8 py-4 text-lg"
+                >
                   📝 INQUIRE NOW
                 </Button>
                 <Button href="/contact" variant="secondary" className="border-2 border-gray-300 text-gray-700 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300 font-semibold px-8 py-4 text-lg">
@@ -74,7 +78,7 @@ export default function AbacusForSchools() {
                       M
                     </div>
                     <div>
-                      <div className="font-bold text-gray-900 text-sm">Mastermind Abacus</div>
+                      <div className="font-bold text-gray-900 text-sm">Vertex Abacus</div>
                       <div className="text-xs text-gray-500">Trusted by Schools Worldwide</div>
                     </div>
                   </div>
@@ -136,7 +140,7 @@ export default function AbacusForSchools() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              WHY <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">MASTERMIND ABACUS</span> FOR YOUR SCHOOL?
+              WHY <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Vertex Abacus</span> FOR YOUR SCHOOL?
             </h2>
             <p className="text-gray-600">Join 2000+ centers across 16 countries</p>
           </div>

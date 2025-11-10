@@ -28,8 +28,12 @@ export default function WhatIsAbacus() {
               THAT TRAINS YOUR CHILD to perform Mental Math with great speed and accuracy.
             </p>
             
-            <Button href="EXTERNAL_FORM" className="bg-yellow-400 text-gray-900 hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 font-bold px-8 py-4 text-lg">
-              🎯 Book A Free Demo Class
+            <Button 
+              href="#"
+              onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+              className="bg-yellow-400 text-gray-900 hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 font-bold px-8 py-4 text-lg"
+            >
+              Book A Free Demo Class
             </Button>
           </div>
         </div>
@@ -301,7 +305,11 @@ export default function WhatIsAbacus() {
                 </p>
               </div>
               
-              <Button href="EXTERNAL_FORM" className="w-full bg-blue-500 hover:bg-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold py-4">
+              <Button 
+                href="#"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                className="w-full bg-blue-500 hover:bg-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold py-4"
+              >
                 📍 RAISE AN INQUIRY
               </Button>
               <div className="text-center mt-3 text-sm text-gray-500">For Offline Classes</div>
@@ -322,7 +330,11 @@ export default function WhatIsAbacus() {
                 </p>
               </div>
               
-              <Button href="EXTERNAL_FORM" className="w-full bg-purple-500 hover:bg-purple-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold py-4">
+              <Button 
+                href="#"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                className="w-full bg-purple-500 hover:bg-purple-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold py-4"
+              >
                 🎯 BOOK A FREE DEMO CLASS
               </Button>
               <div className="text-center mt-3 text-sm text-gray-500">For Online Classes</div>

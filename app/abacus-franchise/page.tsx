@@ -187,7 +187,7 @@ export default function AbacusFranchise() {
                       <p className="text-lg text-gray-900">6% of Gross Sales</p>
                     </div>
                     <div className="pt-4">
-                      <Button className="w-full">Download Investment Guide</Button>
+                      <Button className="w-full">Request an Inquiry</Button>
                     </div>
                   </div>
                 </div>
@@ -268,7 +268,7 @@ export default function AbacusFranchise() {
       </section>
 
       {/* Contact Form Section */}
-      <section id="contact" className="py-24 bg-white">
+      {/* <section id="contact" className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
             <div className="md:flex">
@@ -360,7 +360,7 @@ export default function AbacusFranchise() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Final CTA */}
       <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-800 text-white">

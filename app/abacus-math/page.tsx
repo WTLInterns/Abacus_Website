@@ -29,7 +29,11 @@ export default function AbacusMath() {
               </p>
               
               <div className="flex flex-wrap gap-4">
-                <Button href="EXTERNAL_FORM" className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold px-8 py-4">
+                <Button 
+                  href="#"
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                  className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold px-8 py-4"
+                >
                   🎯 Book Free Demo Class
                 </Button>
                 <Button href="/contact" variant="secondary" className="border-2 border-blue-300 text-blue-700 hover:bg-blue-50 hover:border-blue-400 transition-all duration-300 font-semibold px-8 py-4">
@@ -52,7 +56,7 @@ export default function AbacusMath() {
                     M
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900 text-sm">Mastermind Abacus</div>
+                    <div className="font-bold text-gray-900 text-sm">Vertex Abacus</div>
                     <div className="text-xs text-gray-500">Proven Results</div>
                   </div>
                 </div>
@@ -129,7 +133,7 @@ export default function AbacusMath() {
               </div>
               
               <h2 className="text-3xl font-bold text-gray-900">
-                WHY CHOOSE <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">MASTERMIND ABACUS?</span>
+                WHY CHOOSE <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">VERTEX ABACUS?</span>
               </h2>
               
               <div className="space-y-4">
@@ -194,7 +198,11 @@ export default function AbacusMath() {
                 With over 2000 centers worldwide, find a location near you. Get personalized attention in our interactive classroom environment.
               </p>
               
-              <Button href="EXTERNAL_FORM" className="w-full bg-blue-500 hover:bg-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold py-4">
+              <Button 
+                href="#"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                className="w-full bg-blue-500 hover:bg-blue-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold py-4"
+              >
                 📍 Enquire About Offline Classes
               </Button>
             </div>
@@ -211,7 +219,11 @@ export default function AbacusMath() {
                 Experience our world-class e-learning platform with live interactive sessions. Same quality, greater convenience.
               </p>
               
-              <Button href="EXTERNAL_FORM" className="w-full bg-purple-500 hover:bg-purple-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold py-4">
+              <Button 
+                href="#"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                className="w-full bg-purple-500 hover:bg-purple-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border-0 text-white font-bold py-4"
+              >
                 🎯 Book Free Online Demo
               </Button>
             </div>

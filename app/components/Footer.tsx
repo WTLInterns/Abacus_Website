@@ -35,7 +35,6 @@ export default function Footer() {
             <ul className="mt-3 space-y-2 text-sm text-neutral-700">
               <li><Link href="/abacus-online-classes" className="hover:underline">Abacus Online Classes</Link></li>
               <li><Link href="/abacus-classes-near-me" className="hover:underline">Abacus Classes Near Me</Link></li>
-              <li><Link href="/lingo-bingo" className="hover:underline">Lingo Bingo</Link></li>
               <li><Link href="/abacus-for-schools" className="hover:underline">Abacus Classes In School</Link></li>
             </ul>
           </div>
@@ -57,7 +56,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold">Contact</h4>
             <ul className="mt-3 space-y-2 text-sm text-neutral-700">
-              <li>Address: 51, Sampat Hills, Bicholi Mardana Bypass, Indore-452016, Madhya Pradesh, India</li>
+              <li>Address: Handewadi, Pune, Maharashtra 411028</li>
               <li>Email: <a href="mailto:vertex.priyanka1@gmail.com" className="hover:underline text-blue-600">vertex.priyanka1@gmail.com</a></li>
               <li>Phone: <a href="tel:7821067359" className="hover:underline text-blue-600">7821067359</a></li>
               <li><Link href="/contact" className="hover:underline">Contact Us</Link></li>

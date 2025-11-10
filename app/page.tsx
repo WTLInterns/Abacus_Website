@@ -1,6 +1,7 @@
 "use client";
 import Button from "./components/Button";
 import ModalVideo from "./components/ModalVideo";
+import EnquiryModal from "./components/EnquiryModal";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
 
   return (
     <div className="font-sans overflow-hidden">
+      <EnquiryModal />
       {/* Hero: Experience Abacus & 5x Faster Math */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900">
         <div className="absolute inset-0 bg-white/5"></div>
@@ -30,7 +32,10 @@ export default function Home() {
               Our live and offline Abacus programs help children think clearly, compute quickly, and build lasting confidence. Learn from expert mentors through structured levels and engaging practice.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <Button href="EXTERNAL_FORM" className="bg-black text-blue-900 hover:bg-blue-50">
+              <Button 
+                onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                className="bg-black text-blue-900 hover:bg-blue-50"
+              >
                 🎯 Book Free Demo
               </Button>
               <Button href="/abacus-online-classes" variant="secondary" className="bg-transparent text-black border-white/50 hover:border-white hover:bg-white/10">
@@ -52,14 +57,45 @@ export default function Home() {
           </div>
           <div className={`relative transition-all duration-700 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500 border-4 border-white/20">
-              <ModalVideo 
-                videoId="aqz-KE-bpKQ" 
-                thumbnail="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                title="Abacus Learning Demo"
-              />
+              <video 
+                className="w-full h-auto rounded-2xl"
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster="/images/abacus1.jpg"
+              >
+                <source src="/video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
             <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-yellow-400 rounded-2xl rotate-12 -z-10 opacity-60"></div>
             <div className="absolute -top-6 -right-6 w-20 h-20 bg-green-400 rounded-full -z-10 opacity-60"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* New Image Section (moved right after Hero) */}
+      <section className="relative py-16 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+            <img 
+              src="/images/main.jpg" 
+              alt="Abacus Learning"
+              className="w-full h-auto object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+              <div className="max-w-2xl">
+                <h2 className="text-4xl font-bold text-white mb-4">Transform Your Child's Math Skills</h2>
+                <p className="text-xl text-gray-200 mb-6">Join our interactive abacus program and watch your child excel in mental math</p>
+                <Button 
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                  className="bg-blue-600 hover:bg-blue-700 text-white"
+                >
+                  Enroll Now
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -140,7 +176,10 @@ export default function Home() {
                 See learners solve complex calculations faster than a calculator — a result of consistent practice, guided techniques, and level-based learning.
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
-                <Button href="EXTERNAL_FORM" className="bg-orange-500 hover:bg-orange-600 text-white">
+                <Button 
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                  className="bg-orange-500 hover:bg-orange-600 text-white"
+                >
                   🎯 Book Free Demo
                 </Button>
                 <Button href="/gallery" variant="secondary" className="bg-transparent text-black border-white/50 hover:border-white hover:bg-white/10">
@@ -150,10 +189,10 @@ export default function Home() {
             </div>
             <div className="relative">
               <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500 border-4 border-white/20">
-                <ModalVideo 
-                  videoId="dQw4w9WgXcQ" 
-                  thumbnail="https://images.unsplash.com/photo-1580894894513-541e068a3e2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                  title="Student Math Competition"
+                <img 
+                  src="/images/abacus4.jpg" 
+                  alt="Lightning-Fast Mental Math"
+                  className="w-full h-96 object-cover"
                 />
               </div>
               <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-yellow-400 rounded-full animate-bounce shadow-lg"></div>
@@ -190,7 +229,7 @@ export default function Home() {
                 <ul className="mt-6 space-y-3 text-gray-700">
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                    8 levels, approx. 3 months each
+                    2 days in a week
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
@@ -213,12 +252,8 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-gray-900">Programs by Age</h3>
                 <div className="mt-6 space-y-6">
                   <div className="p-4 rounded-2xl bg-purple-50 border border-purple-100">
-                    <div className="font-bold text-lg text-purple-900">Abacus Program (Age 7–14)</div>
+                    <div className="font-bold text-lg text-purple-900">Abacus Program (Age 6–15)</div>
                     <p className="mt-2 text-purple-700">Designed to spark interest in math and enable exceptional mental calculation speed.</p>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-pink-50 border border-pink-100">
-                    <div className="font-bold text-lg text-pink-900">Lingo Bingo (Age 5–6)</div>
-                    <p className="mt-2 text-pink-700">An offline, game-based starter program that develops early number sense using playful activities.</p>
                   </div>
                 </div>
               </div>
@@ -250,7 +285,11 @@ export default function Home() {
                   Over 2000+ centers globally. Raise an enquiry and we'll share the nearest center details.
                 </p>
                 <div className="mt-6">
-                  <Button href="EXTERNAL_FORM" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100 border-white font-semibold">
+                  <Button 
+                    onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                    variant="secondary" 
+                    className="bg-white text-blue-600 hover:bg-gray-100 border-white font-semibold"
+                  >
                     Raise an Enquiry
                   </Button>
                 </div>
@@ -285,7 +324,11 @@ export default function Home() {
                 <Button href="/abacus-worksheet-generator" className="bg-orange-500 hover:bg-orange-600 text-white">
                   Visit Worksheet Generator
                 </Button>
-                <Button href="EXTERNAL_FORM" variant="secondary" className="border-2 border-orange-200 hover:border-orange-300 text-orange-700">
+                <Button 
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                  variant="secondary" 
+                  className="border-2 border-orange-200 hover:border-orange-300 text-orange-700"
+                >
                   Practice to Excel
                 </Button>
               </div>
@@ -304,6 +347,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      
 
       {/* Gallery */}
       <section className="relative bg-white py-24">
@@ -324,22 +369,30 @@ export default function Home() {
             </Button>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-            {[1,2,3,4,5,6].map((i) => (
+            {["/images/abacus1.jpg","/images/abacus2.jpg","/images/abacus3.jpg","/images/abacus4.jpg","/images/abacus5.jpg"].map((src, idx) => (
               <div 
-                key={i} 
+                key={src} 
                 className="group relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
               >
                 <img 
                   className="h-full w-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
-                  src={`https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=${i}`} 
-                  alt="Gallery" 
+                  src={src} 
+                  alt={`Abacus learning ${idx+1}`} 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
-                  <div className="text-white font-medium">Student Achievement #{i}</div>
-                </div>
               </div>
             ))}
+
+            <div className="h-full flex flex-col items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-700 p-8 rounded-2xl text-white text-center">
+              <h3 className="text-2xl font-bold mb-4">Join Our Community</h3>
+              <p className="mb-6">Become part of our growing family of confident learners</p>
+              <Button 
+                onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                className="bg-black text-blue-600 hover:bg-gray-100"
+              >
+                Enroll Now
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -407,8 +460,8 @@ export default function Home() {
                   Join a global community of learners building a powerful number sense and confidence with math.
                 </p>
                 <Button 
-                  href="EXTERNAL_FORM" 
-                  className="bg-white text-black hover:bg-gray-100"
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
+                  className="bg-black-black hover:bg-gray-100"
                 >
                   Make Your Child a Math Genius
                 </Button>
