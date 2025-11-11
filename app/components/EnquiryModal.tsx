@@ -223,13 +223,7 @@
 
 
 "use client";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-
-declare global {
-  interface Window {
-    grecaptcha: any;
-  }
-}
+import React, { useCallback, useEffect, useState } from "react";
 
 export function openEnquiryModal() {
   if (typeof window !== "undefined") {
@@ -240,7 +234,6 @@ export function openEnquiryModal() {
 export default function EnquiryModal() {
   const [open, setOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const recaptchaContainerRef = useRef<HTMLDivElement>(null);
   const [fullName, setFullName] = useState('');
   const [address, setAddress] = useState('');
   const [contactNo, setContactNo] = useState('');
@@ -253,59 +246,17 @@ export default function EnquiryModal() {
 
   const handleOpenEvent = useCallback(() => setOpen(true), []);
 
-  // Function to render reCAPTCHA v2 checkbox
-  const renderRecaptcha = useCallback(() => {
-    if (window.grecaptcha && recaptchaContainerRef.current && process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY) {
-      try {
-        window.grecaptcha.render(recaptchaContainerRef.current, {
-          'sitekey': process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
-          'theme': 'light'
-        });
-      } catch (error) {
-        console.error("reCAPTCHA render error:", error);
-      }
-    }
-  }, []);
-
-  // Function to load reCAPTCHA script
-  const loadRecaptchaScript = useCallback(() => {
-    // Remove any existing reCAPTCHA scripts
-    const existingScript = document.querySelector('script[src^="https://www.google.com/recaptcha/api.js"]');
-    if (existingScript) {
-      existingScript.remove();
-    }
-
-    const script = document.createElement('script');
-    script.src = 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit';
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
-
-    // Make the render function available globally for reCAPTCHA callback
-    (window as any).onRecaptchaLoad = renderRecaptcha;
-  }, [renderRecaptcha]);
-
   useEffect(() => {
     window.addEventListener("open-enquiry-modal", handleOpenEvent);
     window.addEventListener("keydown", onEsc);
-    
-    // Load reCAPTCHA when modal opens
-    if (open) {
-      setTimeout(() => {
-        loadRecaptchaScript();
-      }, 100);
-    }
     
     return () => {
       window.removeEventListener("open-enquiry-modal", handleOpenEvent);
       window.removeEventListener("keydown", onEsc);
       
-      // Clean up global callback
-      if ((window as any).onRecaptchaLoad) {
-        delete (window as any).onRecaptchaLoad;
-      }
+      // no-op
     };
-  }, [handleOpenEvent, onEsc, open, loadRecaptchaScript]);
+  }, [handleOpenEvent, onEsc]);
 
   const close = () => setOpen(false);
 
@@ -314,22 +265,6 @@ export default function EnquiryModal() {
     setSubmitting(true);
     
     try {
-      // Check if reCAPTCHA is completed
-      let isRecaptchaValid = true;
-      
-      if (window.grecaptcha) {
-        const recaptchaResponse = window.grecaptcha.getResponse();
-        if (!recaptchaResponse) {
-          isRecaptchaValid = false;
-          alert("Please complete the reCAPTCHA verification");
-        }
-      }
-      
-      if (!isRecaptchaValid) {
-        setSubmitting(false);
-        return;
-      }
-      
       // Submit to backend Enquiry API
       const base = process.env.NEXT_PUBLIC_BACKEND_URL || '';
       const res = await fetch("https://api.vertexabacus.com/enquiry", {
@@ -347,11 +282,6 @@ export default function EnquiryModal() {
       }
       alert('Your enquiry has been submitted successfully.');
       setOpen(false);
-      
-      // Reset reCAPTCHA after successful submission
-      if (window.grecaptcha) {
-        window.grecaptcha.reset();
-      }
       // Reset fields
       setFullName('');
       setAddress('');
@@ -424,9 +354,6 @@ export default function EnquiryModal() {
               onChange={(e) => setMessage(e.target.value)}
               required
             />
-            
-            {/* reCAPTCHA container */}
-            <div ref={recaptchaContainerRef} className="flex justify-center"></div>
 
             <div className="text-xs text-neutral-500">
               By registering here, I agree to Vertex Abacus Terms & Conditions and Privacy Policy
