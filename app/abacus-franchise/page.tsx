@@ -88,14 +88,14 @@ export default function AbacusFranchise() {
                 Join hands with a trusted brand and start your profitable educational journey today
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.a
-                  href="#contact"
+                <motion.button
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                   className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-semibold px-8 py-4 rounded-lg transition-colors inline-block"
                 >
                   Apply Now
-                </motion.a>
+                </motion.button>
                 <motion.a
                   href="#why-partner"
                   whileHover={{ scale: 1.03 }}

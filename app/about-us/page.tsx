@@ -161,7 +161,7 @@ export default function AboutUs() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block bg-blue-100 text-blue-600 text-sm font-medium px-4 py-1.5 rounded-full mb-4">MEET OUR TEAM</span>
@@ -199,7 +199,7 @@ export default function AboutUs() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-800 text-white">

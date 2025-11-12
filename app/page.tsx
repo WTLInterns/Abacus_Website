@@ -84,13 +84,17 @@ export default function Home() {
               alt="Abacus Learning"
               className="w-full h-auto object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-              <div className="max-w-2xl">
-                <h2 className="text-4xl font-bold text-white mb-4">Transform Your Child's Math Skills</h2>
-                <p className="text-xl text-gray-200 mb-6">Join our interactive abacus program and watch your child excel in mental math</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-end p-4 sm:p-6 md:p-8">
+              <div className="w-full max-w-2xl">
+                <h2 className="hidden sm:block text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 leading-tight">
+                  Transform Your Child's Math Skills
+                </h2>
+                <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-4 sm:mb-6">
+                  Join our interactive abacus program and watch your child excel in mental math
+                </p>
                 <Button 
                   onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
-                  className="bg-blue-600 hover:bg-blue-700 text-white"
+                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
                 >
                   Enroll Now
                 </Button>
