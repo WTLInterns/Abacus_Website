@@ -384,7 +384,7 @@ export default function Home() {
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Program Modes</h4>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-3"><span>✅</span><span>Offline (At Vertex Centers)</span></li>
-                  <li className="flex items-start gap-3"><span>✅</span><span>Online (Live Zoom/Google Meet Classes)</span></li>
+                  <li className="flex items-start gap-3"><span>✅</span><span>Online (Live Zoom/Google Meet Classes/Whatsapp Call)</span></li>
                 </ul>
               </div>
             </div>

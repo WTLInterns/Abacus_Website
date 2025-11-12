@@ -82,6 +82,20 @@ export default function Navbar() {
                 <path fill="#1877F2" d="M22 12.073C22 6.505 17.523 2 12 2S2 6.505 2 12.073C2 17.09 5.657 21.245 10.438 22v-6.996H7.898v-2.931h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.47h-1.26c-1.243 0-1.63.774-1.63 1.568v1.885h2.773l-.443 2.931h-2.33V22C18.343 21.245 22 17.09 22 12.073z"/>
               </svg>
             </a>
+            <a
+              href="https://share.google/o9ZcuyPfdHH8FucBG"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Google Business Profile"
+              className="hover:opacity-80 transition-opacity"
+            >
+              <svg width="20" height="20" viewBox="0 0 533.5 544.3" aria-hidden="true">
+                <path fill="#EA4335" d="M533.5 278.4c0-18.6-1.7-37.1-5-55H272v104h147.5c-6.3 34-25.4 62.7-54.2 81.9v67h87.5c51.1-47 80.7-116.3 80.7-197.9z"/>
+                <path fill="#34A853" d="M272 544.3c73.4 0 135-24.3 180-66.1l-87.5-67c-24.3 16.3-55.4 26-92.5 26-71 0-131.1-47.9-152.6-112.4H28.8v70.6C73.5 494.2 167.7 544.3 272 544.3z"/>
+                <path fill="#4A90E2" d="M119.4 324.8c-10.9-32.7-10.9-68.5 0-101.2V153H28.8c-43.3 86.6-43.3 189.8 0 276.4l90.6-70.6z"/>
+                <path fill="#FBBC05" d="M272 106.5c39.9-.6 78.3 14.5 107.4 42.6l80.2-80.2C412.8 24.4 343.5-1.9 272 0 167.7 0 73.5 50.1 28.8 153l90.6 70.6C140.3 158.9 200.9 106.5 272 106.5z"/>
+              </svg>
+            </a>
           </div>
           <div>
             <a href="tel:7821067359" className="hover:text-orange-400 transition-colors font-medium">Contact: 7821067359</a>
